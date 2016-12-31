@@ -1,0 +1,83 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.5.0'
+    }
+}
+apply plugin: 'com.android.application'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+            jni.srcDirs = []    // built by ndk-build
+        }
+
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+    productFlavors {
+        armv7.ndk {
+            abiFilter "armeabi-v7a"
+        }
+    }
+
+    // ndk-build to make libsample_api.so
+    def getNdkDir = {
+        if (System.env.ANDROID_NDK_ROOT != null) {
+            return System.env.ANDROID_NDK_ROOT
+        }
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        def ndkDir = properties.getProperty('ndk.dir', null)
+        if (ndkDir == null) {
+            throw new GradleException("NDK location not found in local.properties or ANDROID_NDK_ROOT")
+        }
+        return ndkDir
+    }
+
+    def getNdkBuildCmd = {
+        def ndkBuild = getNdkDir() + "/ndk-build"
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            ndkBuild += ".cmd"
+        }
+        return ndkBuild
+    }
+
+    tasks.withType(JavaCompile) {
+        compileTask -> compileTask.dependsOn ndkBuild
+    }
+
+    clean.dependsOn 'ndkClean'
+
+    task ndkBuild(type: Exec) {
+        println "exec ndk-build"
+        commandLine getNdkBuildCmd()
+    }
+
+    task ndkClean(type: Exec) {
+        println "exec ndk-build clean"
+        commandLine getNdkBuildCmd(), 'clean'
+    }
+
+}

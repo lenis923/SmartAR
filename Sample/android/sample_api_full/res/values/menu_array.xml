@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="root_menu">
+        <item>RecogModes</item>
+        <item>Scene mappings</item>
+        <item>Target trackings</item>
+        <item>Camera settings</item>
+        <item>Misc</item>
+    </string-array>
+    <string-array name="recognizer_mode_menu">
+        <item>Target tracking</item>
+        <item>Scene mapping:TARGET</item>
+        <item>Scene mapping:HFG</item>
+        <item>Scene mapping:VFG</item>
+        <item>Scene mapping:SFM</item>
+        <item>Scene mapping:DRY_RUN</item>
+    </string-array>
+    <string-array name="scene_mapping_menu">
+        <item>Save scene map</item>
+        <item>Load scene map</item>
+        <item>FixSceneMap ON</item>
+        <item>FixSceneMap OFF</item>
+        <item>Change dense map mode</item>
+        <item>Remove lost landmarks ON</item>
+        <item>Remove lost landmarks OFF</item>
+        <item>TriangulateMasks ON</item>
+        <item>TriangulateMasks OFF</item>
+    </string-array>
+    <string-array name="target_tracking_menu">
+        <item>Change search policy</item>
+        <item>WorkerThread ON</item>
+        <item>WorkerThread OFF</item>
+    </string-array>
+    <string-array name="camera_settings_menu">
+        <item>Show VideoImageSizes list</item>
+        <item>Set FocusMode</item>
+        <item>Set FlashMode</item>
+        <item>Set fps range</item>
+        <item>Set SceneMode</item>
+        <item>Set WhiteBalanceMode</item>
+        <item>Set ExposureMode</item>
+        <item>Change camera</item>
+    </string-array>
+    <string-array name="misc_menu">
+        <item>Set StillImageSize</item>
+        <item>Load target from External</item>
+        <item>Set remove targets</item>
+        <item>Sensor device ON</item>
+        <item>Sensor device OFF</item>
+        <item>ForceLocalize</item>
+        <item>Show or hide Status</item>
+        <item>Capture image</item>
+        <item>Save preference</item>
+        <item>Reset all settings</item>
+    </string-array>
+</resources>

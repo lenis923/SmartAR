@@ -1,0 +1,32 @@
+Copyright 2016 Sony Digital Network Applications, Inc.
+All Rights Reserved.
+----------------------------------------------------------------------------
+ = SmartAR SDK for Android version 1.1.0   (2016/03/28) ====================
+    * Android Studioに対応。
+    * ドキュメントを修正。
+    * OpenSSLライブラリを更新。
+    * Watermarkの表示位置を変更。
+
+ = SmartAR SDK for Android version 1.0.1   (2016/02/15) ====================
+    * ドキュメントを修正。
+    * OpenSSLライブラリを更新。
+
+ = SmartAR SDK for Android version 1.0.0   (2016/01/27) ====================
+    * 初回リリース
+
+----------------------------------------------------------------------------
+ = SmartAR SDK for Android version 1.1.0   (2016/03/28) ====================
+    * Support Android Studio.
+    * Fixed the document.
+    * Updated OpenSSL Library.
+    * Changed the display position of the Watermark.
+
+ = SmartAR SDK for Android version 1.0.1   (2016/02/15) ====================
+    * Fixed the document.
+    * Updated OpenSSL Library.
+
+ = SmartAR SDK for Android version 1.0.0   (2016/01/27) ====================
+    * The first release.
+
+----------------------------------------------------------------------------
+[EOF]
